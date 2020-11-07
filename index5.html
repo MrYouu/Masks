@@ -1,0 +1,129 @@
+<!--The HTML code is property to Mr. You (Kristiyan Valchev) and can only be viewed-->
+<!--If you want to use part of the code, please first contact me: krisvalchev@gmail.com-->
+
+<html id = "html">
+    <head>
+        <link href = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel = "stylesheet">
+        <link type = "text/css" rel = "stylesheet" href = "Files/Style.css">
+        <link rel = "icon" href = "Images/Logo.png" type = "image" sizes = "16x16">
+
+        <meta charset = "utf-8">
+        <meta name = "description" content = "Buy cloth masks for your safety on low prices here. Visit our website and make your order now!">
+        <meta name = "keywords" content = "cloth, masks, buy, show, webshop, website, low, price, prices, order, now">
+        <meta name = "author" content = "Kristiyan Valchev">
+        <meta name = "viewport" content = "width = device-width, user-scalable = no, initial-scale = 1">
+        
+        <script type = "text/javascript" src = "Files/Functions.js"></script>
+        <script src = "https://kit.fontawesome.com/190623e0b3.js" crossorigin = "anonymous"></script>
+
+        <title>Маски</title>
+    </head>
+
+    <body id = "body">
+        <!-- #region Default -->
+        <img src = "Images/a5.png" alt = "Link image" style = "display: none;">
+
+        <script>
+            window.scroll(
+            {
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+		</script>
+        <!-- #endregion Default -->
+
+        <div class = "backgroundImage"></div>
+
+        <div class = "messageHolder">
+            <!-- Correctnesses -->
+            <div class = "correctnessHolder" id = "correctness purchesSuccess">
+                <p>Успешно поръчахте маската си.</p>
+            </div>
+
+            <!-- Errors -->
+            <div class = "errorHolder" id = "Error invalidName">
+                <p>Името е невалидно.</p>
+            </div>
+        </div>
+
+        <h1 class = "mainTitle">Маски</h1>
+
+        <div class = "scrollSection">
+            <div onclick = "location.replace('index.html')" class = "scrollSectionBox"><p>ЧЕРНО</p></div>
+            <div onclick = "location.replace('index2.html')" class = "scrollSectionBox"><p>БОРДО</p></div>
+            <div onclick = "location.replace('index3.html')" class = "scrollSectionBox"><p>СИНЬО</p></div>
+            <div onclick = "location.replace('index4.html')" class = "scrollSectionBox"><p>БЯЛО</p></div>
+            <div onclick = "location.replace('index5.html')" class = "scrollSectionBox Active"><p>ШАХМАТНО</p></div>
+            <div onclick = "location.replace('index6.html')" class = "scrollSectionBox"><p>ЗЕЛЕНО</p></div>
+            <div onclick = "location.replace('index7.html')" class = "scrollSectionBox"><p>ЦВЕТЯ</p></div>
+            <div onclick = "location.replace('index8.html')" class = "scrollSectionBox"><p>ЛИЛАВО</p></div>
+            <div onclick = "location.replace('index9.html')" class = "scrollSectionBox"><p>РОЗОВО</p></div>
+        </div>
+
+        <div class = "contentBox a5">
+            <div class = "contentTitleHolder">
+                <h1 class = "contentTitleText">ЛИЛАВО</h1>
+                <img src = "Images/a5.png" alt = "Маска" class = "contentTitleImage">
+            </div>
+
+            <p class = "contentText">
+                Първокачествена платнена маска за многократна употреба. От двете си страни има ластици
+                за прикрепяне на маската за ушите. Удобно покрива устата и носа.
+            </p>
+
+            <a onclick = "buyFormOpen();" class = "contentButton">
+                <text><i class = "fas fa-shopping-cart"></i> Купи</text><price>1.99лв.</price>
+            </a>
+
+            <div class = "buyForm" id = "buyForm">
+                <div class = "inputField">
+                    <input type = "text" placeholder = "First Name" class = "inputFieldText" id = "FNInputFieldText">
+                    <label for = "firstName" class = "inputFieldLabel" id = "FNInputFieldLabel">Собствено име</label>
+                </div>
+                <div class = "inputField">
+                    <input type = "text" placeholder = "Instagram or Phone number" class = "inputFieldText" id = "IPhInputFieldText">
+                    <label for = "firstName" class = "inputFieldLabel" id = "IPhInputFieldLabel">Instagram или Tel.</label>
+                </div>
+                <a href = "#" class = "contentButton">Купи</a>
+            </div>
+        </div>
+
+        <script>
+            const slider = document.querySelector(".scrollSection");
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let scrollSpeed = 1;
+
+            slider.addEventListener("mousedown", (e) =>
+            {
+                isDown = true;
+                slider.classList.add("Active");
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener("mouseleave", () =>
+            {
+                isDown = false;
+                slider.classList.remove("Active");
+            });
+
+            slider.addEventListener("mouseup", () =>
+            {
+                isDown = false;
+                slider.classList.remove("Active");
+            });
+
+            slider.addEventListener("mousemove", (e) =>
+            {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * scrollSpeed;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        </script>
+    </body>
+</html>
