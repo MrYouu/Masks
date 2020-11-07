@@ -23,12 +23,24 @@
         <!-- #region Default -->
         <img src = "Images/a2.png" alt = "Link image" style = "display: none;">
 
+        <div class = "Loader">
+            <div class = "LoaderBalls__item"></div>
+            <div class = "LoaderBalls__item"></div>
+            <div class = "LoaderBalls__item"></div>
+        </div>
+
         <script>
             window.scroll(
             {
                 top: 0,
                 left: 0,
                 behavior: 'smooth'
+            });
+
+            window.addEventListener("load", function ()
+            {
+                const Loader = document.querySelector(".Loader")
+                Loader.className += " hidden";
             });
 		</script>
         <!-- #endregion Default -->
