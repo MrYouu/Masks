@@ -43,6 +43,77 @@ body
 }
 /*#endregion Scrow bar */
 
+/*#region Loader */
+.Loader
+{
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #efefef;
+    justify-content: center;
+	align-items: center;
+    overflow: hidden;
+    
+    z-index: 99;
+}
+
+.Loader.hidden
+{
+	animation: fadeOutt 1s;
+    animation-fill-mode: forwards;
+	overflow-y: visible;
+}
+
+.LoaderBalls__item
+{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4a657c;
+    margin-left: 8px;
+}
+
+.LoaderBalls__item:nth-child(1)
+{
+    animation: bouncing 0.4s alternate infinite cubic-bezier(0.6, 0.05, 0.15, 0.95);
+}
+
+.LoaderBalls__item:nth-child(2)
+{
+    animation: bouncing 0.4s 0.1s alternate infinite cubic-bezier(0.6, 0.05, 0.15, 0.95) backwards;
+}
+
+.LoaderBalls__item:nth-child(3)
+{
+    animation: bouncing 0.4s 0.2s alternate infinite cubic-bezier(0.6, 0.05, 0.15, 0.95) backwards;
+}
+
+@keyframes bouncing
+{
+    0%
+    {
+        transform: translate3d(0, 10px, 0) scale(1.2, 0.85);
+    }
+
+    100%
+    {
+        transform: translate3d(0, -20px, 0) scale(0.9, 1.1);
+    }
+}
+
+@keyframes fadeOutt
+{
+	100%
+	{
+        visibility: hidden;
+        opacity: 0;
+	}
+}
+/*#endregion Loader */
+
 /*#region Main */
 .contentBox.a1 .contentTitleHolder, .contentBox.a1 .contentButton { background-color: #191c35; }
 .contentBox.a1 .buyForm .inputFieldText:focus { border-image: linear-gradient(to right, #191c35, transparent); }
