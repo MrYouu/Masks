@@ -712,7 +712,7 @@ p, div, h1, h2, h3, h4, h5, h6, i, img
         right: 60;
     }
 
-    .contentBox .contentText
+    .contentBox .contentText, .contentBox .buyForm .buyFormText
     {
         width: calc(100% - 60px);
         top: 0;
@@ -794,7 +794,7 @@ p, div, h1, h2, h3, h4, h5, h6, i, img
         margin-top: 60px;
     }
 
-    .contentBox .contentText
+    .contentBox .contentText, .contentBox .buyForm .buyFormText
     {
         width: calc(100% - 30px);
         left: 15;
