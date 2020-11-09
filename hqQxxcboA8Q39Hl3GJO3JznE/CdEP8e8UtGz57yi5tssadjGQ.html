@@ -1,1 +1,57 @@
+<!--The HTML code is property to Mr. You (Kristiyan Valchev) and can only be viewed-->
+<!--If you want to use part of the code, please first contact me: krisvalchev@gmail.com-->
 
+<html id = "html">
+    <head>
+        <link href = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel = "stylesheet">
+        <link type = "text/css" rel = "stylesheet" href = "../Files/Style.css">
+        <link rel = "icon" href = "../Images/Logo.png" type = "image" sizes = "16x16">
+
+        <meta charset = "utf-8">
+        <meta name = "description" content = "List of all orders for masks">
+        <meta name = "author" content = "Kristiyan Valchev">
+        <meta name = "viewport" content = "width = device-width, user-scalable = no, initial-scale = 1">
+        
+        <script type = "text/javascript" src = "../Files/Functions.js"></script>
+        <script src = "https://kit.fontawesome.com/190623e0b3.js" crossorigin = "anonymous"></script>
+
+        <title>Маски - Списък</title>
+    </head>
+
+    <body id = "body" onload = "loadData()">
+        <!-- #region Default -->
+        <script src = "https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+        <script src = "https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+        <script type = "text/javascript" src = "../Files/Database.js"></script>
+
+        <img src = "../Images/linkImage.png" alt = "Link image" style = "display: none;">
+
+        <div class = "Loader">
+            <div class = "LoaderBalls__item"></div>
+            <div class = "LoaderBalls__item"></div>
+            <div class = "LoaderBalls__item"></div>
+        </div>
+
+        <script>
+            window.scroll(
+            {
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+
+            window.addEventListener("load", function ()
+            {
+                const Loader = document.querySelector(".Loader")
+                Loader.className += " hidden";
+            });
+		</script>
+        <!-- #endregion Default -->
+
+        <div class = "backgroundImage"></div>
+
+        <h1 class = "mainTitle">Маски - Списък</h1>
+
+        <div class = "contentBoxHolder" id = "contentBoxHolder"></div>
+    </body>
+</html>
