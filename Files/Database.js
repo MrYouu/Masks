@@ -75,7 +75,23 @@ function defaultData()
     document.getElementById("buyForm").style.display = "none";
 }
 
-function defaultFunction()
+function loadData()
 {
+    cloudData.collection("Purchases").where("firstName", "!=", null).get().then(function(querySnapshot)
+    {
+        querySnapshot.forEach(function(doc)
+        {
+            var Perchase = '<div class = "contentBox">'
+            Perchase += '<div class = "contentTitleHolder">'
+            Perchase += '<h1 class = "contentTitleText" id = "maskName">' + doc.data().firstName + '</h1></div>';
+            Perchase += '<p class = "contentText"> Име: ' + doc.data().firstName + '</p>';
+            Perchase += '<p class = "contentText"> Контакт: ' + doc.data().instagramOrPhone + '</p>';
+            Perchase += '<p class = "contentText"> Маска: ' + doc.data().maskName + '</p></div>';
 
+            document.getElementById("contentBoxHolder").innerHTML += Perchase;
+        });
+    }).catch(function(error)
+    {
+        console.log("Error getting documents: ", error);
+    });
 }

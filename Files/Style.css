@@ -254,6 +254,17 @@ body
 }
 /*#endregion Scroll section */
 
+.contentBoxHolder
+{
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    margin-top: 30px;
+}
+
 .contentBox
 {
     position: relative;
@@ -274,6 +285,13 @@ body
     opacity: 0;
 }
 
+.contentBoxHolder .contentBox
+{
+    padding-bottom: unset;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .contentBox .contentTitleHolder
 {
     position: relative;
@@ -285,6 +303,12 @@ body
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     margin-bottom: 90px;
+}
+
+.contentBoxHolder .contentBox .contentTitleHolder
+{
+    background-color: #8d1b67;
+    margin-bottom: 30px;
 }
 
 .contentBox .contentTitleHolder .contentTitleText
@@ -331,6 +355,11 @@ body
     animation: dropDown .5s ease-out forwards .5s;
     transform: translateY(-50px);
     opacity: 0;
+}
+
+.contentBoxHolder .contentBox .contentText
+{
+    padding-bottom: 20px;
 }
 
 .contentBox .contentButton
