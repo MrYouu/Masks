@@ -19,6 +19,7 @@ function sendPurchaseData()
     var canPurchase;
     var firstName = document.getElementById("FNInputFieldText").value;
     var instagramOrPhone = document.getElementById("IPhInputFieldText").value;
+    var maskName = document.getElementById("maskName").innerHTML;
 
     if (firstName.length >= 2 && firstName.indexOf(' ') <= 0)
     {
@@ -54,7 +55,8 @@ function sendPurchaseData()
         cloudData.doc("Purchases/" + instagramOrPhone).set(
         {
             firstName: firstName,
-            instagramOrPhone: instagramOrPhone
+            instagramOrPhone: instagramOrPhone,
+            maskName: maskName
         }).catch(function(error)
         {
             console.log("Got an Error: " + error);
