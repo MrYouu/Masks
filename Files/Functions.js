@@ -6,6 +6,31 @@ function buyFormOpen()
     document.getElementById("buyForm").style.display = "block";
 }
 
+function changeSection(sectionChangeID)
+{
+    document.getElementById("sectionID").className = "contentBox " + sectionChangeID;
+
+    var allChoices = document.getElementsByClassName("scrollSectionBox");
+    for (i = 0; i < allChoices.length; i++)
+        allChoices[i].className = "scrollSectionBox";
+
+    document.getElementById(sectionChangeID + "Button").className += " Active";
+    document.getElementById("maskName").innerHTML = document.getElementById(sectionChangeID + "ButtonText").innerHTML;
+    document.getElementById("maskImage").src = "Images/" + sectionChangeID + ".png"
+}
+
+function desableElement(elementID, timerSeconds)
+{
+    window.setTimeout(function()
+    {
+        var label = document.getElementById(elementID);
+        if (label != null)
+        {
+            label.style.display = "none";
+        }
+    }, timerSeconds * 1000);
+}
+
 function defaultFunction()
 {
 

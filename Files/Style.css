@@ -383,6 +383,19 @@ body
     opacity: 0;
 }
 
+.contentBox .buyForm .buyFormText
+{
+    position: relative;
+    width: calc(100% - 30px - 300px);
+    top: 0;
+    left: 30;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #ff0000a0;
+    padding-bottom: 50px;
+}
+
 /*#region Input field */
 .contentBox .buyForm .inputField
 {
@@ -428,7 +441,7 @@ body
     font-size: 1rem;
     color: #11111180;
 }
-  
+
 .contentBox .buyForm .inputFieldText:focus
 {
     padding-bottom: 6px;
@@ -436,9 +449,6 @@ body
     border-width: 3px;
     border-image: linear-gradient(to right, #5a7992, transparent);
     border-bottom: 2px solid #111111;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     border-image-slice: 1;
 }
 
