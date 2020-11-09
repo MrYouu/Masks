@@ -21,7 +21,11 @@
 
     <body id = "body">
         <!-- #region Default -->
-        <img src = "Images/a1.png" alt = "Link image" style = "display: none;">
+        <script src = "https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+        <script src = "https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+        <script type = "text/javascript" src = "Files/Database.js"></script>
+
+        <img src = "Images/linkImage.png" alt = "Link image" style = "display: none;">
 
         <div class = "Loader">
             <div class = "LoaderBalls__item"></div>
@@ -57,31 +61,39 @@
             <div class = "errorHolder" id = "Error invalidName">
                 <p>Името е невалидно.</p>
             </div>
+            <div class = "errorHolder" id = "Error invalidInstagramOrTel">
+                <p>Телефонният номер или Instagram името са невлидни.</p>
+            </div>
         </div>
 
         <h1 class = "mainTitle">Маски</h1>
 
         <div class = "scrollSection">
-            <div onclick = "location.replace('index.html')" class = "scrollSectionBox Active"><p>ЧЕРНО</p></div>
-            <div onclick = "location.replace('index2.html')" class = "scrollSectionBox"><p>БОРДО</p></div>
-            <div onclick = "location.replace('index3.html')" class = "scrollSectionBox"><p>СИНЬО</p></div>
-            <div onclick = "location.replace('index4.html')" class = "scrollSectionBox"><p>БЯЛО</p></div>
-            <div onclick = "location.replace('index5.html')" class = "scrollSectionBox"><p>ШАХМАТНО</p></div>
-            <div onclick = "location.replace('index6.html')" class = "scrollSectionBox"><p>ЗЕЛЕНО</p></div>
-            <div onclick = "location.replace('index7.html')" class = "scrollSectionBox"><p>ЦВЕТЯ</p></div>
-            <div onclick = "location.replace('index8.html')" class = "scrollSectionBox"><p>ЛИЛАВО</p></div>
-            <div onclick = "location.replace('index9.html')" class = "scrollSectionBox"><p>РОЗОВО</p></div>
+            <div onclick = "changeSection('a1')" class = "scrollSectionBox Active" id = "a1Button"><p id = "a1ButtonText">ЧЕРНО</p></div>
+            <div onclick = "changeSection('a2')" class = "scrollSectionBox" id = "a2Button"><p id = "a2ButtonText">БОРДО</p></div>
+            <div onclick = "changeSection('a3')" class = "scrollSectionBox" id = "a3Button"><p id = "a3ButtonText">СИНЬО</p></div>
+            <div onclick = "changeSection('a4')" class = "scrollSectionBox" id = "a4Button"><p id = "a4ButtonText">БЯЛО</p></div>
+            <div onclick = "changeSection('a5')" class = "scrollSectionBox" id = "a5Button"><p id = "a5ButtonText">КАРИРАНО</p></div>
+            <div onclick = "changeSection('a6')" class = "scrollSectionBox" id = "a6Button"><p id = "a6ButtonText">ЗЕЛЕНО</p></div>
+            <div onclick = "changeSection('a7')" class = "scrollSectionBox" id = "a7Button"><p id = "a7ButtonText">ЦВЕТЯ</p></div>
+            <div onclick = "changeSection('a8')" class = "scrollSectionBox" id = "a8Button"><p id = "a8ButtonText">ЛИЛАВО</p></div>
+            <div onclick = "changeSection('a9')" class = "scrollSectionBox" id = "a9Button"><p id = "a9ButtonText">РОЗОВО</p></div>
         </div>
 
-        <div class = "contentBox a1">
+        <div class = "contentBox a1" id = "sectionID">
             <div class = "contentTitleHolder">
-                <h1 class = "contentTitleText">ЧЕРНО</h1>
-                <img src = "Images/a1.png" alt = "Маска" class = "contentTitleImage">
+                <h1 class = "contentTitleText" id = "maskName">ЧЕРНО</h1>
+                <img src = "Images/a1.png" alt = "Маска" class = "contentTitleImage" id = "maskImage">
             </div>
 
             <p class = "contentText">
-                Първокачествена платнена маска за многократна употреба. От двете си страни има ластици
-                за прикрепяне на маската за ушите. Удобно покрива устата и носа.
+                - Състав: 100% памук<br>
+                - Анатомична<br>
+                - Двуслойна с висока филтрираща способност<br>
+                - Ниско съпротивление при дишане<br>
+                - Удобно и стабилно укрепване към носа, добре уляга към повечето извивки на лицето<br>
+                - Възможно гладене на висока температура<br>
+                - Пране на 60°C<br>
             </p>
 
             <a onclick = "buyFormOpen();" class = "contentButton">
@@ -95,9 +107,13 @@
                 </div>
                 <div class = "inputField">
                     <input type = "text" placeholder = "Instagram or Phone number" class = "inputFieldText" id = "IPhInputFieldText">
-                    <label for = "firstName" class = "inputFieldLabel" id = "IPhInputFieldLabel">Instagram или Tel.</label>
+                    <label for = "firstName" class = "inputFieldLabel" id = "IPhInputFieldLabel">Tel. или Instagram</label>
                 </div>
-                <a href = "#" class = "contentButton">Купи</a>
+                <p class = "buyFormText">
+                    След заявяване на поръчката, в рамките на 24 часа лице на нашата фирма ще се
+                    свърже с вас за уточняване на бройката, заплащане и приемане на маските.
+                </p>
+                <a onclick = "sendPurchaseData()" class = "contentButton">Купи</a>
             </div>
         </div>
 
